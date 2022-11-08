@@ -44,7 +44,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("testtree117_2.json", function(error, flare) {//testtreeD3url
+d3.json("testtree118.json", function(error, flare) {//testtreeD3url
   if (error) throw error;
   root = d3.hierarchy(flare);
   root.x0 = 0;
