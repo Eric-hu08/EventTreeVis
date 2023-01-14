@@ -27,7 +27,7 @@
 <script>
 
 var margin = {top: 30, right: 20, bottom: 30, left: 20},
-    width = 1260, //框的宽度
+    width = 2760, //框的宽度
     barHeight = 20,
     barWidth = (width - margin.left - margin.right) * 0.8;
 
@@ -44,7 +44,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("testtree118.json", function(error, flare) {//testtreeD3url
+d3.json("tree_18.json", function(error, flare) {//testtreeD3url
   if (error) throw error;
   root = d3.hierarchy(flare);
   root.x0 = 0;
@@ -98,7 +98,7 @@ function update(source) {
 
       nodeEnter.append("text")
       .attr("dy", 3.5)
-      .attr("dx", 780)
+      .attr("dx", 1205)
       .text(function(d) { return "date:"+d.data.time_e+" "+d.data.time_l; });
 
 
@@ -106,6 +106,22 @@ function update(source) {
       .attr("dy", 3.5)
       .attr("dx", 705.5)
       .text(function(d) { return d.data.undernum; });
+
+      nodeEnter.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", 1005.5)
+      .text(function(d) { return d.data.eventbasecode+' '+d.data.eventcode; });
+
+      nodeEnter.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", 780)
+      .text(function(d) { return d.data.resource_n; });
+
+
+      nodeEnter.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", 1405.5)
+      .text(function(d) { return d.data.url; });
 
   // Transition nodes to their new position.
   nodeEnter.transition()
